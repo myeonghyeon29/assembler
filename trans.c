@@ -2,7 +2,7 @@
 
 int instr_trans(char *op, char *args, char* mcode)
 {
-	// check syntax 
+	// check syntax292929 
 	if(!is_valid(op, args)){
 		printf("Error: %s %s is not valid\n", op, args);
 		return 0;
