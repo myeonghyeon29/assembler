@@ -61,6 +61,7 @@ int what_register(char* args){
 	else
 		return 0;
 }
+
 int instr_trans(char *op, char *args, char* mcode)
 {
 	// check syntax
@@ -74,6 +75,15 @@ int instr_trans(char *op, char *args, char* mcode)
 	strcpy(tok,args);
 	f_args= strtok(tok,",");
 	b_args= strtok(NULL,"\0");
+
+	if(is_register(f_args)&&is_register(b_args)) //case 1
+		strcpy(mcode,"89");
+	else if(is_register(b_args)&&is_memory(f_args)) //case2
+		strcpy(mcode,"8b");
+	else if(is_register(b_args)&&is_memorydisplay(f_args))//case3
+
+	else
+		strcpy(mcode,"error");		
 
 	return 1;
 }
