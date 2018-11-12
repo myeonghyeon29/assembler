@@ -1,5 +1,7 @@
 #include "myas.h"
 
+extern int instr_trans(char *op, char *args, char *mcode); 
+
 int main(int argc, char* argv[])
 {
 	char ifname[20];
