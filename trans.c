@@ -80,7 +80,12 @@ int instr_trans(char *op, char *args, char* mcode)
 		strcpy(mcode,"89");
 	else if(is_register(b_args)&&is_memory(f_args)) //case2
 		strcpy(mcode,"8b");
-	else if(is_register(b_args)&&is_memorydisplay(f_args))//case3
+	else if(is_register(b_args)&&is_memorydisplay(f_args)) //case3
+		strcpy(mcode,"8b");
+	else if(is_memoryaddress(f_args)&&what_register(b_args)==EAX)//case4
+		strcpy(mcode,"a1");
+	else if(what_register(f_args)==EAX&&is_memoryaddress(b_args))//case5
+		strcpy(mcode,"a3");
 
 	else
 		strcpy(mcode,"error");		
