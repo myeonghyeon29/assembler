@@ -26,8 +26,8 @@ int is_valid(char *op, char *args)
 	strcpy(tok,args); //divide args
 	f_args= strtok(tok,",");
 	b_args= strtok(NULL,"\0");
-
-
+	
+	//exception case
 	if(strcmp(op,"mov")!=0){ //case1 op is not mov 
 		return 0;
 	}

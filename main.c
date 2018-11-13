@@ -25,7 +25,6 @@ int main(int argc, char* argv[])
 
 	while (!feof(ifp)){
 		fscanf(ifp, "%s %s\n", op, args);
-
 		// translate assembly into machine-code 
 		if(!instr_trans(op, args, mcode)){
 			printf("Error: %s %s cannot be translated\n", op, args);
