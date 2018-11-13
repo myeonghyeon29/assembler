@@ -64,8 +64,8 @@ int instr_trans(char *op, char *args, char* mcode)
 {
 	// check syntax
 	char tok[256];
-	char* f_args;
-	char* b_args;
+	char* f_args; //front args before ','
+	char* b_args; //back args after ','
 	if(!is_valid(op, args)){ //exception handling
 		printf("Error: %s %s is not valid\n", op, args);
 		return 0;
@@ -74,7 +74,7 @@ int instr_trans(char *op, char *args, char* mcode)
 	f_args= strtok(tok,","); 
 	b_args= strtok(NULL,"\0");
 
-	if(is_register(f_args)&&is_register(b_args)) //case 1
+	if(is_register(f_args)&&is_register(b_args)) //case1
 		strcpy(mcode,"89");
 	else if(is_memory(f_args)&&what_register(b_args)==EAX)//case4//
 		strcpy(mcode,"a1");
