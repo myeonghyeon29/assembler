@@ -1,9 +1,5 @@
 #include "myas.h"
 
-#define IMMEDIATE 29
-#define MEMORY 30
-
-
 int find_imm(char* args){ //find immediate
 	
 	if(args[0]=='$'){
