@@ -31,18 +31,18 @@ int is_valid(char *op, char *args)
 	if(strcmp(op,"mov")!=0){ //case1 op is not mov 
 		return 0;
 	}
-	else if(find_imm(b_args)==IMMEDIATE){ //case2 back args is immediate
-		return 0;
+	else if(find_imm(b_args)==IMMEDIATE){ 
+		return 0; //case2 back args is not immediate
 	}
 	else if((find_imm(f_args)==IMMEDIATE)&& 
-(find_imm(b_args)==IMMEDIATE)) //case3 back,front args are immediate
+(find_imm(b_args)==IMMEDIATE)) //case3 back,front args are not immediates
 	{
 		return 0;
 	}
 	else if(find_memory(f_args)==MEMORY&&find_memory(b_args)==MEMORY)
-	{ //case 4back,front args are memory
+	{ //case 4back,front args are not memories
 		return 0;
 	}
 
-	return 1;
+	return 1; //valid return 1
 }
